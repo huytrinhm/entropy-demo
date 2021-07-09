@@ -6,10 +6,38 @@
 	<title>Index page</title>
 	<link href="/css/material-components-web.min.css" rel="stylesheet">
 	<link href="/css/main.css" rel="stylesheet">
+	<link href="/css/index.css" rel="stylesheet">
+	<link href="/css/icon.css" rel="stylesheet">
 	<script src="/js/material-components-web.min.js"></script>
 	<script src="/js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-	
+	<div class="main">
+		<h1>Minh họa vòng thi tăng tốc</h1>
+		<div class="button-wrapper">
+			<button class="mdc-button mdc-button--raised manage">
+				<span class="mdc-button__ripple"></span>
+				<span class="mdc-button__label">Quản lí</span>
+				<i class="material-icons mdc-button__icon" aria-hidden="true">open_in_new</i>
+			</button>
+			<button class="mdc-button mdc-button--raised player">
+				<span class="mdc-button__ripple"></span>
+				<span class="mdc-button__label">Thí sinh</span>
+				<i class="material-icons mdc-button__icon" aria-hidden="true">open_in_new</i>
+			</button>
+			<button class="mdc-button mdc-button--raised spectator">
+				<span class="mdc-button__ripple"></span>
+				<span class="mdc-button__label">Khán giả</span>
+				<i class="material-icons mdc-button__icon" aria-hidden="true">open_in_new</i>
+			</button>
+		</div>
+		<button class="mdc-button mdc-button--raised code">
+			<i class="material-icons mdc-button__icon" aria-hidden="true">code</i>
+			<span class="mdc-button__ripple"></span>
+			<span class="mdc-button__label">Source code</span>
+		</button>
+	</div>
+
+	<script src="/js/index.js"></script>
 </body>
 </html>

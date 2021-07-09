@@ -1,0 +1,30 @@
+body {
+	display: flex;
+}
+
+div.main {
+	margin: auto;
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+}
+
+div.button-wrapper {
+	display: flex;
+	flex-flow: row;
+	margin: 40px 0;
+}
+
+button.mdc-button--raised {
+	margin: 10px;
+	height: 2.5em;
+	font-size: 1.1em;
+}
+
+h1 {
+	font-size: 2.5em;
+}
+
+ico {
+	color: white;
+}
