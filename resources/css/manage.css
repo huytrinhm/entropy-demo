@@ -1,0 +1,121 @@
+.main-container {
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+  grid-template-columns: 0.8fr 1.2fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+  "q a"
+  "t a";
+  box-sizing: border-box;
+  border-bottom: var(--border-width) solid var(--border-color);
+  border-left: var(--border-width) solid var(--border-color);
+}
+
+.answers-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+  "ans1 ans2"
+  "ans3 ans4";
+  grid-area: a;
+}
+
+.question-container,
+.tools-container,
+.answer1, .answer2, .answer3, .answer4 {
+  height: calc(50vh - 1.5px);
+  box-sizing: border-box;
+  border-top: var(--border-width) solid var(--border-color);
+  border-right: var(--border-width) solid var(--border-color);
+}
+
+.answer1 { grid-area: ans1; }
+.answer2 { grid-area: ans2; }
+.answer3 { grid-area: ans3; }
+.answer4 { grid-area: ans4; }
+.question-container { grid-area: q; }
+.tools-container { grid-area: t; }
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 6%;
+  padding: 10px;
+  border-bottom: var(--border-width) solid var(--border-color);
+  background: var(--mdc-theme-surface);
+  font-size: 1.3em;
+  font-weight: bold;
+  text-transform: uppercase;
+  overflow-y: hidden;
+}
+
+.content {
+  display: flex;
+  height: calc(94% - 23px);
+  overflow-y: auto;
+}
+
+.question {
+  text-align: justify;
+  font-size: 1.5rem;
+  margin: auto 20px;
+}
+
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+::-webkit-scrollbar:vertical {
+  width: 12px;
+}
+
+::-webkit-scrollbar:horizontal {
+  height: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 10px 10px rgba(100, 100, 100, 0.4);
+  border: solid 4px rgba(0, 0, 0, 0);
+  border-radius: 10px;
+}
+
+table tbody td {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+table.mdc-data-table__table {
+  margin: 6px;
+  min-width: calc(100% - 12px);
+  /*width: 100%;*/
+}
+
+td.mdc-data-table__cell {
+  text-align: justify;
+  font-size: 1.2em;
+  padding: 10px;
+}
+
+tr.mdc-data-table__row {
+  border-top: 2px solid white;
+}
+tr.mdc-data-table__row:first-child {
+  border: none;
+}
+
+td.time {
+  color: var(--mdc-theme-primary) !important;
+  text-align: right;
+}
+
+td.ans {
+  text-transform: uppercase;
+  font-weight: bold;
+}
