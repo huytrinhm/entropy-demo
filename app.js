@@ -8,6 +8,10 @@ app.get('/Manage', (req, res, next) => {
 	res.sendFile('./views/manage.html', {root: __dirname})
 })
 
+app.get('/Player', (req, res, next) => {
+	res.sendFile('./views/player.html', {root: __dirname})
+})
+
 app.get('/', (req, res, next) => {
 	res.sendFile('./views/index.html', {root: __dirname})
 })

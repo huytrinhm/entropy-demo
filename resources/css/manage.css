@@ -54,6 +54,7 @@
   font-weight: bold;
   text-transform: uppercase;
   overflow-y: hidden;
+  user-select: none;
 }
 
 .content {
@@ -118,4 +119,38 @@ td.time {
 td.ans {
   text-transform: uppercase;
   font-weight: bold;
+}
+
+div.tools-wrapper {
+  margin: auto;
+  display: flex;
+  flex-flow: column;
+}
+
+button.start, button.stop {
+  margin: 10px;
+  height: 1.5em;
+  font-size: 1.3em !important;
+  font-weight: bold;
+}
+
+button.start {
+  background-color: #459045 !important;
+}
+
+button.stop {
+  background-color: #ff4545 !important;
+}
+
+p.timer {
+  visibility: hidden;
+  font-weight: bold;
+  color: var(--mdc-theme-primary) !important;
+  align-self: center;
+  user-select: none;
+  font-size: 1.5em !important;
+}
+
+p.visible {
+  visibility: visible;
 }

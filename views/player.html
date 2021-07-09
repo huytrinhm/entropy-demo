@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Player</title>
+	<link href="/css/material-components-web.min.css" rel="stylesheet">
+	<link href="/css/main.css" rel="stylesheet">
+	<link href="/css/player.css" rel="stylesheet">
+	<script src="/js/material-components-web.min.js"></script>
+	<script src="/js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+	<div class="main-container">
+		<div class="image"></div>
+		<div class="panel-time">
+			<div class="time-outer">
+				<div class="time-inner"></div>
+			</div>
+		</div>
+		<div class="panel-question">
+			<div class="panel-body">
+				<span class="mdc-typography--subtitle1 question">Câu hỏi</span>
+			</div>
+			<div class="panel-answer">
+				<div class="mdc-text-field mdc-text-field--outlined">
+					<input autocomplete="off" spellcheck="false" type="text" id="tf-outlined" class="mdc-text-field__input ip-answer">
+				</div>
+				<div class="answer">
+					<span class="mdc-typography--button"></span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="/js/player.js"></script>
+</body>
+</html>

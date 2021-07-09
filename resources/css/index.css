@@ -1,5 +1,6 @@
 body {
 	display: flex;
+	flex-flow: column;
 }
 
 div.main {
@@ -27,4 +28,16 @@ h1 {
 
 ico {
 	color: white;
+}
+
+.mdc-button--outlined:not(:disabled) {
+	border: 2px solid var(--mdc-theme-primary);
+}
+
+p {
+	align-self: center;
+}
+
+i.love {
+	color: #ff4545 !important;
 }

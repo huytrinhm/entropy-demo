@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Manage</title>
 	<link href="/css/material-components-web.min.css" rel="stylesheet">
+	<link href="/css/icon.css" rel="stylesheet">
 	<link href="/css/main.css" rel="stylesheet">
 	<link href="/css/manage.css" rel="stylesheet">
 	<script src="/js/material-components-web.min.js"></script>
@@ -15,12 +16,26 @@
 		<div class="question-container">
 			<div class="title">Câu hỏi</div>
 			<div class="content">
-				<p class="question">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+				<p class="question">Chưa bắt đầu!</p>
 			</div>
 		</div>
 		<div class="tools-container">
 			<div class="title">Công cụ</div>
-			<div class="content"></div>
+			<div class="content">
+				<div class="tools-wrapper">
+					<button class="mdc-button mdc-button--raised start">
+						<span class="mdc-button__ripple"></span>
+						<span class="mdc-button__label">Bắt đầu</span>
+						<i class="material-icons mdc-button__icon" aria-hidden="true">play_arrow</i>
+					</button>
+					<button class="mdc-button mdc-button--raised stop" disabled>
+						<span class="mdc-button__ripple"></span>
+						<span class="mdc-button__label">Dừng khẩn cấp</span>
+						<i class="material-icons mdc-button__icon" aria-hidden="true">stop</i>
+					</button>
+					<p class="timer">0</p>
+				</div>
+			</div>
 		</div>
 		<div class="answers-container">
 			<div class="answer1">
@@ -56,6 +71,13 @@
 				</div>
 			</div>
 		</div>
+	</div>
+
+
+
+
+	<div class="audio-container" style="display: none">
+		<audio class="timer-audio" preload="auto" src="../sound/timer.mp3"></audio>
 	</div>
 
 	<script src="/js/manage.js"></script>
