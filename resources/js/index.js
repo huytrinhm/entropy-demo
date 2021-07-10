@@ -8,11 +8,11 @@ $('.manage').on('click', () => {
 })
 
 $('.player').on('click', () => {
-	// window.open('/Manage')
+	window.open('/Player')
 })
 
 $('.spectator').on('click', () => {
-	// window.open('/Manage')
+	window.open('/Spectate')
 })
 
 $('.code').on('click', () => {
