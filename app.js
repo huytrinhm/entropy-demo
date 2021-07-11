@@ -37,10 +37,9 @@ io.on("connection", socket => {
 				if(!running) {
 					try {
 						data = JSON.parse(await fs.readFile('./resources/matchData/sample.json', {encoding: 'utf8'}))
-						for (var i = 1; i <= data.time.length; i++) {
-							await data.imageData.push('data:image/png;base64,' + (await fs.readFile(`./resources/matchData/${i}.JPG`, {encoding: 'base64'})))
-						}
-						console.log(data)
+						// for (var i = 1; i <= data.time.length; i++) {
+						// 	await data.imageData.push('data:image/png;base64,' + (await fs.readFile(`./resources/matchData/${i}.JPG`, {encoding: 'base64'})))
+						// }
 						io.emit('matchData', data)
 						console.log('New start')
 					} catch (e) {
