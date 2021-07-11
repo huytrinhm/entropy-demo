@@ -1,4 +1,8 @@
-const MDCRipple = mdc.ripple.MDCRipple;
+const MDCRipple = mdc.ripple.MDCRipple
+const MDCDialog = mdc.dialog.MDCDialog
+const MDCList = mdc.list.MDCList
+const dialog = new MDCDialog(document.querySelector('.mdc-dialog'))
+const list = new MDCList(document.querySelector('.mdc-list'))
 for(const button of $('.mdc-button')) {
 	new MDCRipple(button)
 }
@@ -25,7 +29,10 @@ function clearTable() {
 }
 
 socket.on('finish', (d) => {
-	alert('finish')
+	for(var i = 0; i < 4; i++) {
+		$('.res-ans')[i].innerHTML = d[i].answer
+	}
+	dialog.open()
 })
 
 socket.on('newAns', (d) => {
@@ -43,7 +50,11 @@ $('.start').on('click', () => {
 	socket.emit('start', (d) => {
 		if(!d.success) {
 			$('.start')[0].disabled = false
-			alert('Lỗi!')
+			if(d.running) {
+				alert('Một trận đấu khác đang diễn ra. Vui lòng đợi ít nhất 30s rồi thử lại!')
+			} else {
+				alert('Lỗi!')
+			}
 			return
 		}
 	})
@@ -82,4 +93,20 @@ $('.stop').on('click', () => {
 socket.on('matchData', (d) => {
 	data = d
 	console.log(d)
+	list.selectedIndex = []
+})
+
+dialog.listen('MDCDialog:closing', function() {
+	console.log(list.selectedIndex)
+	socket.emit('mark', list.selectedIndex)
+})
+
+socket.on('mark', (d) => {
+	if(!d.length) {
+		$('.incorrect')[0].currentTime = 0
+		$('.incorrect')[0].play()
+	} else {
+		$('.correct')[0].currentTime = 0
+		$('.correct')[0].play()
+	}
 })

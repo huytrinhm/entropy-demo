@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Manage</title>
+	<title>Quản lí</title>
 	<link href="/css/material-components-web.min.css" rel="stylesheet">
 	<link href="/css/icon.css" rel="stylesheet">
 	<link href="/css/main.css" rel="stylesheet">
@@ -17,7 +17,7 @@
 		<div class="question-container">
 			<div class="title">Câu hỏi</div>
 			<div class="content question-wrap">
-				<p class="question">Hướng dẫn:<br>Vui lòng mở tab <a>Thí sinh</a> trước khi bắt đầu vòng thi.<br>Sau khi kết thúc thời gian trả lời, quay lại tab quản lí để chấm đáp án.<br>Có thể bắt đầu trận mới sau mỗi lần thử.</p>
+				<p class="question">Hướng dẫn:<br>Vui lòng mở tab <a href="/Player" target="_blank">Thí sinh</a> trước khi bắt đầu vòng thi.<br>Sau khi kết thúc thời gian trả lời, quay lại tab quản lí để chấm đáp án.<br>Có thể bắt đầu trận mới sau mỗi lần thử.<br>Vòng thi sẽ tự động kết thúc khi đóng tab này.</p>
 			</div>
 		</div>
 		<div class="tools-container">
@@ -74,11 +74,92 @@
 		</div>
 	</div>
 
-
+	<div class="mdc-dialog">
+		<div class="mdc-dialog__container">
+			<div class="mdc-dialog__surface" role="alertdialog" aria-modal="true" aria-labelledby="my-dialog-title" aria-describedby="my-dialog-content">
+				<h2 class="mdc-dialog__title" id="my-dialog-title">Chấm đáp án</h2>
+				<div class="mdc-dialog__content" id="my-dialog-content">
+					<ul class="mdc-list" role="group" aria-label="Answer list">
+						<li class="mdc-list-item" role="checkbox" aria-checked="false">
+							<span class="mdc-list-item__ripple"></span>
+							<span class="mdc-list-item__graphic">
+								<div class="mdc-checkbox">
+									<input type="checkbox"
+									class="mdc-checkbox__native-control"
+									id="checkbox-item-1"/>
+									<div class="mdc-checkbox__background">
+										<svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+											<path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+										</svg>
+										<div class="mdc-checkbox__mixedmark"></div>
+									</div>
+								</div>
+							</span>
+							<label class="mdc-list-item__text res-ans" for="checkbox-item-1">Option 1</label>
+						</li>
+						<li class="mdc-list-item" role="checkbox" aria-checked="false">
+							<span class="mdc-list-item__ripple"></span>
+							<span class="mdc-list-item__graphic">
+								<div class="mdc-checkbox">
+									<input type="checkbox" class="mdc-checkbox__native-control" id="checkbox-item-2"/>
+									<div class="mdc-checkbox__background">
+										<svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+											<path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+										</svg>
+										<div class="mdc-checkbox__mixedmark"></div>
+									</div>
+								</div>
+							</span>
+							<label class="mdc-list-item__text res-ans" for="checkbox-item-2">Option 2</label>
+						</li>
+						<li class="mdc-list-item" role="checkbox" aria-checked="false">
+							<span class="mdc-list-item__ripple"></span>
+							<span class="mdc-list-item__graphic">
+								<div class="mdc-checkbox">
+									<input type="checkbox" class="mdc-checkbox__native-control" id="checkbox-item-3"/>
+									<div class="mdc-checkbox__background">
+										<svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+											<path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+										</svg>
+										<div class="mdc-checkbox__mixedmark"></div>
+									</div>
+								</div>
+							</span>
+							<label class="mdc-list-item__text res-ans" for="checkbox-item-3">Option 3</label>
+						</li>
+						<li class="mdc-list-item" role="checkbox" aria-checked="false">
+							<span class="mdc-list-item__ripple"></span>
+							<span class="mdc-list-item__graphic">
+								<div class="mdc-checkbox">
+									<input type="checkbox" class="mdc-checkbox__native-control" id="checkbox-item-4"/>
+									<div class="mdc-checkbox__background">
+										<svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+											<path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+										</svg>
+										<div class="mdc-checkbox__mixedmark"></div>
+									</div>
+								</div>
+							</span>
+							<label class="mdc-list-item__text res-ans" for="checkbox-item-4">Option 4</label>
+						</li>
+					</ul>
+				</div>
+				<div class="mdc-dialog__actions">
+					<button type="button" class="mdc-button mdc-dialog__button mdc-button--raised" data-mdc-dialog-action="accept">
+						<div class="mdc-button__ripple"></div>
+						<span class="mdc-button__label">OK</span>
+					</button>
+				</div>
+			</div>
+		</div>
+		<div class="mdc-dialog__scrim"></div>
+	</div>
 
 
 	<div class="audio-container" style="display: none">
 		<audio class="timer-audio" preload="auto" src="../sound/timer.mp3"></audio>
+		<audio class="correct" preload="auto" src="../sound/correct.mp3"></audio>
+		<audio class="incorrect" preload="auto" src="../sound/incorrect.mp3"></audio>
 	</div>
 
 	<script src="/js/manage.js"></script>

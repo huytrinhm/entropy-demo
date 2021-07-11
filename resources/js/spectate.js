@@ -73,3 +73,11 @@ socket.on('finish', (d) => {
 	}
 	$('.result-view').show()
 })
+
+socket.on('mark', (d) => {
+	for(var i = 0; i < 4; i++) {
+		if(!(i in d)) {
+			$($('.result-view').children()[i]).addClass('wrong')
+		}
+	}
+})

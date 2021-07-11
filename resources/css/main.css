@@ -8,6 +8,7 @@
   --border-color:  #fff;
   --border-width: 3px;
   --mdc-typography-font-family: Monteserrat, sans-serif;
+  --mdc-checkbox-unchecked-color: #fff;
 }
 
 * {
