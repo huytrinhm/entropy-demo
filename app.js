@@ -14,18 +14,25 @@ var finishTimeout = null
 var startTime = 0
 var answers = null
 var data = null
+var numPlayer = 0
+var numJury = 0
 
 io.on("connection", socket => {
 	try {
 		if(socket.handshake.query.site == 'manage') {
 			socket.join('jury')
+			numJury++
 			socket.on('disconnect', () => {
+				numJury--
+				if(numJury)
+					return
 				try {
 					running = false
 					startTime = 0
 					answers = null
 					data = null
 					clearTimeout(finishTimeout)
+					io.emit('stop')
 					finishTimeout = null
 				} catch(e) {
 					console.log(e)
@@ -34,9 +41,13 @@ io.on("connection", socket => {
 			socket.on('start', async (callback) => {
 				if(!running) {
 					try {
+						if(!numPlayer) {
+							callback({success: false, message: "Không có thí sinh nào đang kết nối"})
+							return
+						}
 						data = JSON.parse(await fs.readFile('./resources/matchData/sample.json', {encoding: 'utf8'}))
 						for (var i = 1; i <= data.time.length; i++) {
-							await data.imageData.push('data:image/png;base64,' + (await fs.readFile(`./resources/matchData/${i}.JPG`, {encoding: 'base64'})))
+							await data.imageData.push(`/matchData/${i}.JPG`)
 						}
 						io.emit('matchData', data)
 					} catch (e) {
@@ -44,7 +55,7 @@ io.on("connection", socket => {
 						callback({success: false})
 					}
 				} else {
-					callback({success: false, running: true})
+					callback({success: false, message: "Một trận đấu khác đang diễn ra. Vui lòng đợi ít nhất 30s rồi thử lại!"})
 				}
 			})
 			socket.on('stop', () => {
@@ -57,6 +68,10 @@ io.on("connection", socket => {
 			})
 		} else if(socket.handshake.query.site == 'player') {
 			socket.join('player')
+			numPlayer++
+			socket.on('disconnect', () => {
+				numPlayer--
+			})
 			socket.on('answer', (val, callback) => {
 				var ansTime = Math.round((Date.now() - startTime + Number.EPSILON)/10) / 100
 				if(running && ansTime <= 30 && answers) {

@@ -50,8 +50,8 @@ $('.start').on('click', () => {
 	socket.emit('start', (d) => {
 		if(!d.success) {
 			$('.start')[0].disabled = false
-			if(d.running) {
-				alert('Một trận đấu khác đang diễn ra. Vui lòng đợi ít nhất 30s rồi thử lại!')
+			if(d.message) {
+				alert(d.message)
 			} else {
 				alert('Lỗi!')
 			}

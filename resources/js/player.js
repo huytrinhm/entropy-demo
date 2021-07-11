@@ -94,8 +94,19 @@ $(document).ready(() => {
 		})
 
 		socket.on('mark', (d) => {
+			d.sort()
+			mark = [0, 0, 0, 0]
+			for(var i = 0; i < d.length; i++) {
+				mark[d[i]] = i?mark[d[i-1]]-10:40
+				if(i > 0) {
+					if($('.time')[d[i]].innerText == $('.time')[d[i-1]].innerText) {
+						mark[d[i]] = mark[d[i-1]]
+					}
+				}
+			}
 			for(var i = 0; i < 4; i++) {
-				if(!(i in d)) {
+				$('.time')[i].innerText = mark[i]
+				if(!d.includes(i)) {
 					$($('.result-view').children()[i]).addClass('wrong')
 				}
 			}
