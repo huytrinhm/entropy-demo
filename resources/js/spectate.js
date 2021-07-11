@@ -22,6 +22,9 @@ socket.on('matchData', (d) => {
 	$('.main-container').show()
 	$('.question-text').text("")
 	$('.image').css('background-image', '')
+	for(var i = 0; i < 4; i++) {
+		$($('.result-view').children()[i]).removeClass('wrong')
+	}
 })
 
 socket.on('start', () => {

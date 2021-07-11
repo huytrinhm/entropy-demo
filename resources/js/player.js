@@ -41,6 +41,9 @@ $(document).ready(() => {
 			$('.image').css('background-image', '')
 			$('.answer span').html('')
 			$('.question').text('')
+			for(var i = 0; i < 4; i++) {
+				$($('.result-view').children()[i]).removeClass('wrong')
+			}
 			$('.time-inner').css('transition', "all 1s ease-in-out")
 			$('.time-inner').css('height', "100%")
 			setTimeout(() => {
