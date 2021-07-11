@@ -19,10 +19,10 @@ io.on("connection", socket => {
 	try {
 		if(socket.handshake.query.site == 'manage') {
 			socket.join('jury')
-			console.log('New manage connection')
+			console.log('Manage connection')
 			socket.on('disconnect', () => {
 				try {
-					console.log('New manage disconnection')
+					console.log('Manage disconnection')
 					running = false
 					startTime = 0
 					answers = null
@@ -36,12 +36,12 @@ io.on("connection", socket => {
 			socket.on('start', async (callback) => {
 				if(!running) {
 					try {
-						console.log('New start')
 						data = JSON.parse(await fs.readFile('./resources/matchData/sample.json', {encoding: 'utf8'}))
 						for (var i = 1; i <= data.time.length; i++) {
 							await data.imageData.push('data:image/png;base64,' + (await fs.readFile(`./resources/matchData/${i}.JPG`, {encoding: 'base64'})))
 						}
 						io.emit('matchData', data)
+						console.log('New start')
 					} catch (e) {
 						console.log(e)
 						callback({success: false})
@@ -60,6 +60,7 @@ io.on("connection", socket => {
 			})
 		} else if(socket.handshake.query.site == 'player') {
 			socket.join('player')
+			console.log('Player connection')
 			socket.on('answer', (val, callback) => {
 				var ansTime = Math.round((Date.now() - startTime + Number.EPSILON)/10) / 100
 				if(running && ansTime <= 30 && answers) {
@@ -103,6 +104,7 @@ io.on("connection", socket => {
 			})
 		} else if(socket.handshake.query.site == 'spectate') {
 			socket.join('spectate')
+			console.log('Spectate connection')
 		}
 	} catch(e) {
 		console.log(e)
