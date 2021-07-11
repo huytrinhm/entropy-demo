@@ -45,10 +45,10 @@ io.on("connection", socket => {
 			var ansTime = Math.round((Date.now() - startTime + Number.EPSILON)/10) / 100
 			if(running && ansTime <= 30 && answers) {
 				answers[socket.handshake.query.index].push(
-					{
-						val: val,
-						time: ansTime
-					})
+				{
+					val: val,
+					time: ansTime
+				})
 				io.to('jury').emit('newAns', {val: val, time: ansTime, index: socket.handshake.query.index})
 				callback({success: true})
 			} else {
@@ -59,9 +59,23 @@ io.on("connection", socket => {
 			if(!running) {
 				startTime = Date.now()
 				finishTimeout = setTimeout(() => {
-					io.emit('finish')
+					var sendData = []
+					for (var i = 0; i < 4; i++) {
+						sendData.push({name: `Thí sinh ${i+1}`, answer: answers[i].length?answers[i][answers[i].length-1].val:"", time: answers[i].length?answers[i][answers[i].length-1].time:9999})
+					}
+					sendData.sort((a, b) => {
+						if(a.time < b.time) {
+							return -1
+						} else if(a.time > b.time) {
+							return 1
+						} else {
+							return a.name<b.name?-1:1
+						}
+					})
+					console.log(sendData)
+					io.emit('finish', sendData)
 					running = false
-				}, 30000)
+				}, 33000)
 				io.emit('start')
 				running = true
 				answers = [[], [], [], []]

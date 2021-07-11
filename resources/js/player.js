@@ -36,6 +36,8 @@ $(document).ready(() => {
 		socket.on('matchData', (d) => {
 			data = d
 			console.log(d)
+			$('.result-view').hide()
+			$('.main-container').show()
 			$('.image').css('background-image', '')
 			$('.answer span').html('')
 			$('.question').text('')
@@ -76,6 +78,16 @@ $(document).ready(() => {
 			$('.time-inner').css('transition', 'none')
 			clearInterval(imageInterval)
 			clearTimeout(imageTimeout)
+		})
+
+		socket.on('finish', (d) => {
+			$('.main-container').hide()
+			for(var i = 0; i < 4; i++) {
+				$('.name')[i].innerHTML = (d[i].name)
+				$('.res-answer')[i].innerHTML = (d[i].answer)
+				$('.time')[i].innerHTML = (d[i].time!=9999?d[i].time.toFixed(2):'')
+			}
+			$('.result-view').show()
 		})
 	})
 })

@@ -13,8 +13,8 @@ const socket = io(document.location.origin, {
 function newAns(ans, time, index) {
 	$($('.mdc-data-table__content')[index]).append(
 		`<tr class="mdc-data-table__row">
-			<td class="mdc-data-table__cell ans">${ans}</td>
-			<td class="mdc-data-table__cell time">${time.toFixed(2)}</td>
+		<td class="mdc-data-table__cell ans">${ans}</td>
+		<td class="mdc-data-table__cell time">${time.toFixed(2)}</td>
 		</tr>`)
 }
 
@@ -24,8 +24,8 @@ function clearTable() {
 	}
 }
 
-socket.on('finish', () => {
-	$('.timer').removeClass('visible')
+socket.on('finish', (d) => {
+	alert('finish')
 })
 
 socket.on('newAns', (d) => {
@@ -59,6 +59,7 @@ socket.on('start', () => {
 		clearInterval(timer)
 		$('.start')[0].disabled = false
 		$('.stop')[0].disabled = true
+		$('.timer').removeClass('visible')
 	}, 30000)
 	clearTable()
 	$('.timer').html('30')
