@@ -40,6 +40,7 @@ io.on("connection", socket => {
 						for (var i = 1; i <= data.time.length; i++) {
 							await data.imageData.push('data:image/png;base64,' + (await fs.readFile(`./resources/matchData/${i}.JPG`, {encoding: 'base64'})))
 						}
+						console.log(data)
 						io.emit('matchData', data)
 						console.log('New start')
 					} catch (e) {
