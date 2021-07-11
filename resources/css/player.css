@@ -56,11 +56,11 @@ div {
 	background-position: center;
 	background-size: contain;
 	border-left: solid;
+	border-top: solid white;
 }
 
 .panel-time {
 	height: calc(100vh - 100px);
-	border-top: solid white;
 }
 
 .time-outer {
@@ -69,17 +69,23 @@ div {
 	width: 25px;
 	margin-left: auto;
 	border: solid white;
-	border-top: none;
+	border-top: solid;
 	border-bottom: none;
 	position: relative;
 }
 
 .time-inner {
-	height: 0%;
-	border-radius: 20px;
+	height: 100%;
 	background-image: linear-gradient(var(--mdc-theme-secondary), var(--mdc-theme-surface));
 	width: 100%;
-	transition: all 60s ease-in-out;
 	position: absolute;
 	bottom: 0;
+}
+
+.mdc-list-item {
+	align-items: center;
+}
+
+.mdc-radio .mdc-radio__native-control:enabled:not(:checked)+.mdc-radio__background .mdc-radio__outer-circle {
+     border-color: white;
 }

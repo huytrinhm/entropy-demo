@@ -9,6 +9,7 @@
 	<link href="/css/player.css" rel="stylesheet">
 	<script src="/js/material-components-web.min.js"></script>
 	<script src="/js/jquery-3.6.0.min.js"></script>
+	<script src="/socket/socket.io.min.js"></script>
 </head>
 <body>
 	<div class="main-container">
@@ -31,6 +32,73 @@
 				</div>
 			</div>
 		</div>
+	</div>
+
+	<div class="mdc-dialog">
+		<div class="mdc-dialog__container">
+			<div class="mdc-dialog__surface" role="alertdialog" aria-modal="true" aria-labelledby="my-dialog-title" aria-describedby="my-dialog-content">
+				<h2 class="mdc-dialog__title" id="my-dialog-title">Chọn thí sinh</h2>
+				<div class="mdc-dialog__content" id="my-dialog-content">
+					<ul class="mdc-list">
+						<li class="mdc-list-item" tabindex="0">
+							<span class="mdc-list-item__graphic">
+								<div class="mdc-radio">
+									<input class="mdc-radio__native-control" type="radio" id="player1" name="player-group" checked>
+									<div class="mdc-radio__background">
+										<div class="mdc-radio__outer-circle"></div>
+										<div class="mdc-radio__inner-circle"></div>
+									</div>
+								</div>
+							</span>
+							<label id="player1-label" for="player1" class="mdc-list-item__text">Thí sinh 1</label>
+						</li>
+						<li class="mdc-list-item" tabindex="1">
+							<span class="mdc-list-item__graphic">
+								<div class="mdc-radio">
+									<input class="mdc-radio__native-control" type="radio" id="player2" name="player-group">
+									<div class="mdc-radio__background">
+										<div class="mdc-radio__outer-circle"></div>
+										<div class="mdc-radio__inner-circle"></div>
+									</div>
+								</div>
+							</span>
+							<label id="player2-label" for="player2" class="mdc-list-item__text">Thí sinh 2</label>
+						</li>
+						<li class="mdc-list-item" tabindex="2">
+							<span class="mdc-list-item__graphic">
+								<div class="mdc-radio">
+									<input class="mdc-radio__native-control" type="radio" id="player3" name="player-group">
+									<div class="mdc-radio__background">
+										<div class="mdc-radio__outer-circle"></div>
+										<div class="mdc-radio__inner-circle"></div>
+									</div>
+								</div>
+							</span>
+							<label id="player3-label" for="player3" class="mdc-list-item__text">Thí sinh 3</label>
+						</li>
+						<li class="mdc-list-item" tabindex="3">
+							<span class="mdc-list-item__graphic">
+								<div class="mdc-radio">
+									<input class="mdc-radio__native-control" type="radio" id="player4" name="player-group">
+									<div class="mdc-radio__background">
+										<div class="mdc-radio__outer-circle"></div>
+										<div class="mdc-radio__inner-circle"></div>
+									</div>
+								</div>
+							</span>
+							<label id="player4-label" for="player4" class="mdc-list-item__text">Thí sinh 4</label>
+						</li>
+					</ul>
+				</div>
+				<div class="mdc-dialog__actions">
+					<button type="button" class="mdc-button mdc-button--raised mdc-dialog__button" data-mdc-dialog-action="accept">
+						<div class="mdc-button__ripple"></div>
+						<span class="mdc-button__label">OK</span>
+					</button>
+				</div>
+			</div>
+		</div>
+		<div class="mdc-dialog__scrim"></div>
 	</div>
 
 	<script src="/js/player.js"></script>
