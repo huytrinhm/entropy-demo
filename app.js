@@ -57,7 +57,6 @@ io.on("connection", socket => {
 			})
 		} else if(socket.handshake.query.site == 'player') {
 			socket.join('player')
-			console.log('Player connection')
 			socket.on('answer', (val, callback) => {
 				var ansTime = Math.round((Date.now() - startTime + Number.EPSILON)/10) / 100
 				if(running && ansTime <= 30 && answers) {
@@ -101,7 +100,6 @@ io.on("connection", socket => {
 			})
 		} else if(socket.handshake.query.site == 'spectate') {
 			socket.join('spectate')
-			console.log('Spectate connection')
 		}
 	} catch(e) {
 		console.log(e)
