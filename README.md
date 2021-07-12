@@ -14,6 +14,7 @@ Vui lòng chọn server nhanh nhất để có được trải nghiệm tốt nh
 ### Tải hoặc clone project
 ```
 git clone https://github.com/huytrinhm/entropy-demo.git
+cd entropy-demo
 ```
 
 ### Cài đặt các dependencies
