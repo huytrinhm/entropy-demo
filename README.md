@@ -5,7 +5,6 @@ Minh họa vòng thi tăng tốc theo format chương trình Đường lên đ�
 Vui lòng chọn server nhanh nhất để có được trải nghiệm tốt nhất.
 - IBM Cloud Foundry (khuyên dùng): https://entropy-demo.us-south.cf.appdomain.cloud/
 - Heroku app: https://huytrinhm-entropy-demo.herokuapp.com/
-- opeNode: https://entropy-demo.openode.io/
 
 ## Cài đặt
 ### Yêu cầu kĩ thuật
