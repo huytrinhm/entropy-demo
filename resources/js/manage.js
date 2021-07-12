@@ -47,6 +47,7 @@ var data = null
 
 $('.start').on('click', () => {
 	$('.start')[0].disabled = true
+	$('.question')[0].innerHTML = "Vui lòng đợi 5 - 15s để tải dữ liệu"
 	socket.emit('start', (d) => {
 		if(!d.success) {
 			$('.start')[0].disabled = false
@@ -57,7 +58,6 @@ $('.start').on('click', () => {
 			}
 			return
 		}
-		$('.question')[0].innerHTML = "Vui lòng đợi 5 - 15s để tải dữ liệu"
 	})
 })
 
