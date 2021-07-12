@@ -57,6 +57,7 @@ $('.start').on('click', () => {
 			}
 			return
 		}
+		$('.question')[0].innerHTML = "Vui lòng đợi 5 - 15s để tải dữ liệu"
 	})
 })
 

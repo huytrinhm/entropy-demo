@@ -47,9 +47,10 @@ io.on("connection", socket => {
 						}
 						data = JSON.parse(await fs.readFile('./resources/matchData/sample.json', {encoding: 'utf8'}))
 						for (var i = 1; i <= data.time.length; i++) {
-							await data.imageData.push(`/matchData/${i}.JPG`)
+							await data.imageData.push('data:image/png;base64,' + (await fs.readFile(`./resources/matchData/${i}.JPG`, {encoding: 'base64'})))
 						}
-						io.emit('matchData', data)
+						io.to('spectate').to('player').emit('matchData', data)
+						io.to('jury').emit('matchData', {question: data.question})
 					} catch (e) {
 						console.log(e)
 						callback({success: false})
@@ -150,5 +151,5 @@ app.use((req, res) => {
 	res.sendStatus(404)
 })
 
-httpServer.listen(process.env.PORT)
-console.log(`Listening at http://localhost:${process.env.PORT}/`)
+httpServer.listen(process.env.PORT || 3000)
+console.log(`Listening at http://localhost:${process.env.PORT?process.env.PORT:3000}/`)
