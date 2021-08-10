@@ -1,11 +1,6 @@
 # entropy-demo
 Minh họa vòng thi tăng tốc theo format chương trình Đường lên đỉnh Olympia
 
-## Live demo
-Vui lòng chọn server nhanh nhất để có được trải nghiệm tốt nhất.
-- IBM Cloud Foundry (khuyên dùng): https://entropy-demo.us-south.cf.appdomain.cloud/
-- Heroku app: https://huytrinhm-entropy-demo.herokuapp.com/
-
 ## Cài đặt
 ### Yêu cầu kĩ thuật
 - Node.js >= 14.0.0
